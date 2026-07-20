@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/hashquark-staking/staking-service-sdk (staking_service/init.go, sign.go)
+docs: https://hashkeycloud.gitbook.io/docs/api/staking-api/get-started
+summary:
+  types:
+  - http
+  scheme: signature
+  description: >-
+    HashKey Cloud (HashQuark) staking-service requests are authenticated with a
+    custom request-signature scheme rather than API keys or OAuth. Each request
+    carries an Authorization header of the form
+    "Quark-Keccak256-ECDSA Address=<address>,Nonce=<uuid>,Timestamp=<unix>,Signature=<hex>".
+schemes:
+- name: Quark-Keccak256-ECDSA
+  type: http
+  scheme: signature
+  in: header
+  header: Authorization
+  authorization_format: >-
+    Quark-Keccak256-ECDSA Address={address},Nonce={uuid},Timestamp={unixSeconds},Signature={hex}
+  signature:
+    curve: secp256k1
+    hash: keccak256
+    message: keccak256(nonce_bytes || bigEndian32(timestamp))
+    algorithm: ECDSA (Ethereum crypto.Sign over the Keccak256 digest)
+    key: client Ethereum private key (address registered with the broker)
+  replay_protection:
+  - per-request UUID nonce
+  - unix timestamp
+  sources:
+  - packages/hashquark-packages.yml
+  - https://github.com/hashquark-staking/staking-service-sdk
+notes: >-
+  No OAuth2/OIDC or apiKey security scheme is published; the account/broker
+  address and its Ethereum keypair are the credential. Base URL is provisioned
+  per broker and injected into the SDK (no fixed public host).
