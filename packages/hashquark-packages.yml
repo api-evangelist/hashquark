@@ -1,0 +1,19 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/hashquark-staking/staking-service-sdk
+packages:
+- language: go
+  registry: pkg.go.dev
+  name: github.com/hashquark-staking/staking-service-sdk
+  url: https://pkg.go.dev/github.com/hashquark-staking/staking-service-sdk
+  repo: https://github.com/hashquark-staking/staking-service-sdk
+  install: go get github.com/hashquark-staking/staking-service-sdk
+  official: true
+  covers:
+  - HashKey Cloud (HashQuark) Staking API
+  - HashKey Cloud (HashQuark) Data API
+  notes: >-
+    First-party Go client library for the HashKey Cloud staking-service API.
+    Wraps user, validator, deposit, delegation, rewards, pooled-staking and
+    BTC (Babylon) staking operations and signs every request with the
+    Quark-Keccak256-ECDSA scheme.

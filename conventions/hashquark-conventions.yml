@@ -1,0 +1,46 @@
+generated: '2026-07-19'
+method: derived
+source: https://github.com/hashquark-staking/staking-service-sdk (staking_service/entities.go, init.go)
+docs: https://hashkeycloud.gitbook.io/docs/api/data-api
+authentication:
+  style: request-signature
+  header: Authorization
+  scheme: Quark-Keccak256-ECDSA
+  detail: authentication/hashquark-authentication.yml
+path_convention:
+  prefix: /openapi
+  examples:
+  - GET /openapi/users
+  - GET /openapi/users/{uid}
+  - POST /openapi/users
+  - GET /openapi/rewards/daily
+error_envelope:
+  shape: '{ "code": <int>, "msg": <string>, "data": <object> }'
+  success_code: 0
+  detail: >-
+    Every response is wrapped in a Response<T> envelope. code == 0 signals
+    success and data carries the payload; a non-zero code with msg signals an
+    error. This is a numeric-code envelope, not RFC 9457 problem+json.
+pagination:
+  style: page-number
+  request_params:
+  - pageNum
+  - pageSize
+  response_fields:
+  - pageNum
+  - pageSize
+  - total
+  - list
+  detail: PageResult<T> wraps list responses.
+idempotency:
+  supported: false
+  note: >-
+    Requests carry a per-request UUID nonce + timestamp for replay protection,
+    but no client-supplied idempotency key is documented; retries are not
+    guaranteed idempotent. No Idempotency pointer emitted.
+request_headers:
+  content_type: application/json
+  accept: application/json
+cross_links:
+  authentication: authentication/hashquark-authentication.yml
+  packages: packages/hashquark-packages.yml

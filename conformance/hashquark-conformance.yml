@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: derived
+source: https://github.com/hashquark-staking/staking-service-sdk
+standards:
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 security scheme published; custom request-signature auth
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors use a numeric {code,msg,data} envelope, not application/problem+json
+- id: json-over-http
+  conforms: true
+  evidence: application/json request and response bodies throughout the SDK
+- id: page-number-pagination
+  conforms: true
+  evidence: PageResult<T> with pageNum/pageSize/total/list
+- id: ecdsa-secp256k1-request-signing
+  conforms: true
+  evidence: Quark-Keccak256-ECDSA Authorization header (Ethereum keypair signature)

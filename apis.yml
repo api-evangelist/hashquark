@@ -1,25 +1,129 @@
 aid: hashquark
-name: hashquark
-description: hashquark is a company surfaced as a portfolio company of qiming and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+name: HashKey Cloud (HashQuark)
+description: >-
+  HashKey Cloud, formerly HashQuark, is a Hong Kong-based blockchain
+  infrastructure and Web3 staking provider (part of HashKey Group) that runs
+  enterprise-grade validator nodes across 50+ mainstream proof-of-stake public
+  chains including Ethereum, Cosmos, Solana, Polkadot, Avalanche, Sui and BNB
+  Chain. It exposes a developer platform for institutional staking: a Staking
+  API to onboard users, generate deposits, assign and exit validators and drive
+  pooled staking; a Data API to track node status and daily/monthly/quarterly/
+  annual reward data; plus a dashboard, a Babylon BTC staking flow and a
+  first-party Go SDK. Requests are authenticated with a custom
+  Quark-Keccak256-ECDSA request-signing scheme keyed to an Ethereum keypair.
+  Originally added to the API Evangelist network as a portfolio-lead stub
+  (surfaced via Qiming), now enriched from HashKey Cloud's public developer
+  surface.
 url: https://raw.githubusercontent.com/api-evangelist/hashquark/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - qiming
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: real-developer-surface
+x-rebrand: HashQuark is now HashKey Cloud (hashquark.io redirects to www.hashkey.cloud)
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://avatars.githubusercontent.com/u/138440702?v=4
 tags:
 - Company
-apis: []
+- Blockchain
+- Staking
+- Web3
+- Validators
+- Cryptocurrency
+- Node Infrastructure
+- Proof of Stake
+- Ethereum
+- DeFi
+apis:
+- name: HashKey Cloud Staking API
+  description: >-
+    Institutional staking API to onboard broker users, generate and track
+    deposits, assign/exit validators, drive pooled staking and Babylon BTC
+    staking across supported proof-of-stake protocols. Authenticated with the
+    Quark-Keccak256-ECDSA request-signature scheme.
+  humanURL: https://hashkeycloud.gitbook.io/docs/api/staking-api/get-started
+  baseURL: https://staking.hashkey.cloud
+  tags:
+  - Staking
+  - Validators
+  - Blockchain
+  properties:
+  - type: Documentation
+    url: https://hashkeycloud.gitbook.io/docs/api/staking-api
+  - type: GettingStarted
+    url: https://hashkeycloud.gitbook.io/docs/api/staking-api/get-started
+- name: HashKey Cloud Data API
+  description: >-
+    Reporting API for node status and staking reward data (daily, monthly,
+    quarterly and annual rewards) for integrated staking users. Shares the
+    Quark-Keccak256-ECDSA authentication and the {code,msg,data} response
+    envelope.
+  humanURL: https://hashkeycloud.gitbook.io/docs/api/data-api/get-started
+  baseURL: https://staking.hashkey.cloud
+  tags:
+  - Data
+  - Rewards
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://hashkeycloud.gitbook.io/docs/api/data-api
+  - type: APIReference
+    url: https://hashkeycloud.gitbook.io/docs/api/data-api/api-specs
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/hashquark-domain-security.yml
 - type: Website
-  url: https://hashquark.io
+  url: https://www.hashkey.cloud
+- type: DeveloperPortal
+  url: https://hashkeycloud.gitbook.io/docs
+- type: Documentation
+  url: https://hashkeycloud.gitbook.io/docs
+- type: APIReference
+  url: https://hashkeycloud.gitbook.io/docs/api/data-api/api-specs
+- type: GettingStarted
+  url: https://hashkeycloud.gitbook.io/docs/api/staking-api/get-started
+- type: Blog
+  url: https://hashkeycloud.medium.com/
+- type: GitHubOrganization
+  url: https://github.com/hashquark-staking
+- type: PrivacyPolicy
+  url: https://group.hashkey.com/en/privacy-policy
+- type: X
+  url: https://twitter.com/HashKeyCloud
+- type: Authentication
+  url: authentication/hashquark-authentication.yml
+- type: Conventions
+  url: conventions/hashquark-conventions.yml
+- type: Conformance
+  url: conformance/hashquark-conformance.yml
+- type: Packages
+  url: packages/hashquark-packages.yml
+- type: SDKs
+  url: packages/hashquark-packages.yml
+- type: LLMsTxt
+  url: llms/hashquark-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
