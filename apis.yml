@@ -55,6 +55,17 @@ tags:
 - Blockchain
 - Staking
 - Web3
+- Validator
+- Cryptocurrency
+- Node Infrastructure
+- Proof of Stake
+- Ethereum
+- DeFi
+tags_raw:
+- Company
+- Blockchain
+- Staking
+- Web3
 - Validators
 - Cryptocurrency
 - Node Infrastructure
@@ -71,6 +82,10 @@ apis:
   humanURL: https://hashkeycloud.gitbook.io/docs/api/staking-api/get-started
   baseURL: https://staking.hashkey.cloud
   tags:
+  - Staking
+  - Validator
+  - Blockchain
+  tags_raw:
   - Staking
   - Validators
   - Blockchain
